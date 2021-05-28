@@ -82,3 +82,7 @@ First, open your terminal. Then, run these two command lines :
     
     # Try to deal with the V1V3 - V3V4 situation :
     time nohup bash 04_fastq-cat.sh &> 04_fastq-cat.out
+
+        real	0m1.264s
+        user	0m0.039s
+        sys	    0m0.692s
