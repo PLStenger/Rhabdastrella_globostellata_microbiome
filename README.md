@@ -29,7 +29,7 @@ First, open your terminal. Then, run these two command lines :
     # Go in the script folder
     cd 00_script
     
-    # Run the first script
+    # Run the first script for check the quality of your data and then for choosing the good cleanning parameters
     time nohup bash 01_quality_check_by_FastQC.sh &> 01_quality_check_by_FastQC.out
     
         real	2m29.904s
@@ -51,5 +51,13 @@ First, open your terminal. Then, run these two command lines :
     # Go in the script folder
     cd 00_script
 
-    # Run the second script
+    # Run the second script for cleaned your data
     time nohup bash 02_trimmomatic_q30.sh &> 02_trimmomatic_q30.out
+    
+        real	1m12.017s
+        user	1m31.466s
+        sys	    0m8.983s
+
+    # Run the third script for checking the quality of your cleaned data 
+    time nohup bash 03_check_quality_of_cleaned_data.sh &> 03_check_quality_of_cleaned_data.out
+
