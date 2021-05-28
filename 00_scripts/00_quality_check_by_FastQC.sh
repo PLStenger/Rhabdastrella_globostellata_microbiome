@@ -10,7 +10,7 @@ OUTPUT=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data
 
 cd $WORKING_DIRECTORY
 
-for FILE in $(ls $WORKING_DIRECTORY/*.fastq.gz)
+for FILE in $(ls $WORKING_DIRECTORY/*.fastq)
 do
       fastqc $FILE -o $OUTPUT
 done ;
