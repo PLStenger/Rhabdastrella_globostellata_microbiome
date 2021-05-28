@@ -81,4 +81,4 @@ First, open your terminal. Then, run these two command lines :
     cd 00_script
     
     # Try to deal with the V1V3 - V3V4 situation :
-    time nohup bash 04_fastq-join-cat.sh &> 04_fastq-join-cat.out
+    time nohup bash 04_fastq-cat.sh &> 04_fastq-cat.out
