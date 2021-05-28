@@ -61,3 +61,21 @@ First, open your terminal. Then, run these two command lines :
     # Run the third script for checking the quality of your cleaned data 
     time nohup bash 03_check_quality_of_cleaned_data.sh &> 03_check_quality_of_cleaned_data.out
 
+        real	5m5.974s
+        user	5m42.971s
+        sys	    0m27.492s
+        
+    # Go out of the folder
+    cd ..
+    
+    # Go in the "04_quality_check" folder
+    cd 04_quality_check
+    
+    # Run multiqc for synthetized information
+    multiqc .
+    
+    # Go out of the folder
+    cd ..
+    
+    # Go in the script folder
+    cd 00_script
