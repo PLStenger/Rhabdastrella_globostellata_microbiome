@@ -1,6 +1,9 @@
 # Rhabdastrella_globostellata_microbiome
 
-![graphical_summary](https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/primers_map.png)
+![graphical_summary_of_primers_map](https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/primers_map.png)
+
+![graphical_summary_of_sets_of_markers](https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/five_set_of_markers.png)
+
 
 ### Installing pipeline :
 
