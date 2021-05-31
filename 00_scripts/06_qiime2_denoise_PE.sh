@@ -29,6 +29,7 @@ conda activate qiime2-2019.10
 qiime dada2 denoise-paired --i-demultiplexed-seqs demux.qza \
 --o-table Table.qza  \
 --o-representative-sequences RepSeq.qza \
+--o-denoising-stats SampleData \
 --p-trim-left-f 6 \
 --p-trim-left-r 6 \
 --p-trunc-len-f 0 \
