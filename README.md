@@ -101,7 +101,9 @@ First, open your terminal. Then, run these two command lines :
     
     # Run the Denoise
     time nohup bash 06_qiime2_denoise_PE.sh &> 06_qiime2_denoise_PE.out
-    
+        real	61m10.565s
+        user	124m19.146s
+        sys	17m13.084s
     
     time nohup bash 07_qiime2_tree_PE.sh &> 07_qiime2_tree_PE.out
     time nohup bash 08_qiime2_rarefaction_PE.sh &> 08_qiime2_rarefaction_PE.out
