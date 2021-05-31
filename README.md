@@ -1,5 +1,7 @@
 # Rhabdastrella_globostellata_microbiome
 
+![graphical_summary](https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/primers_map.png)
+
 ### Installing pipeline :
 
 First, open your terminal. Then, run these two command lines :
