@@ -110,5 +110,35 @@ First, open your terminal. Then, run these two command lines :
     time nohup bash 09_qiime2_calculate_and_explore_diversity_metrics_PE.sh &> 09_qiime2_calculate_and_explore_diversity_metrics_PE.out
     time nohup bash 10_qiime2_assign_taxonomy_PE.sh &> 10_qiime2_assign_taxonomy_PE.out
     
+
+### Results :
+   
+<ins>Table 1 : Results from the script "05_qiime2_import_PE.sh" that give object "demux.qza/.qzv"  :</ins>
+
+| Sample name | Sequence count |
+|-------------|----------------|
+| BRG2_set_05 | 96250          |
+| BRG1_set_05 | 95639          |
+| BRG2_set_04 | 92801          |
+| BRG1_set_04 | 92791          |
+| BRG3_set_04 | 89017          |
+| BRG3_set_05 | 87914          |
+| BRG2_set_03 | 67233          |
+| BRG1_set_03 | 64388          |
+| BRG2_set_02 | 63784          |
+| BRG1_set_02 | 61540          |
+| BRG3_set_02 | 59269          |
+| BRG3_set_03 | 58166          |
+| BRG1_set_01 | 31251          |
+| BRG3_set_01 | 29748          |
+| BRG2_set_01 | 29017          |    
     
     
+<details>
+  <summary>Click here for per base sequence quality plot to see results</summary>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/quality_base.png" width="800">
+  </div>
+
+</details>
