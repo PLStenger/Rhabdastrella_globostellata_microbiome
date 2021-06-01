@@ -26,15 +26,20 @@ conda activate qiime2-2019.10
 
 # https://github.com/benjjneb/dada2/issues/477
 
+# https://docs.qiime2.org/2020.8/plugins/available/dada2/denoise-paired/
+# p-trunc : Position at which forward read sequences should be truncated due to decrease in quality. This truncates the 3' end of the of the input sequences, which will be the bases that were sequenced in the last cycles. Reads that are shorter than this value will be discarded. After this parameter is applied there must still be at least a 12 nucleotide overlap between the forward and reverse reads. If 0 is provided, no truncation or length filtering will be performed
+# --p-trim-left-f : Position at which forward read sequences should be trimmed due to low quality. This trims the 5' end of the input sequences, which will be the bases that were sequenced in the first cycles.
+#--p-trim-left-r : Position at which reverse read sequences should be trimmed due to low quality. This trims the 5' end of the input sequences, which will be the bases that were sequenced in the first cycles.
+
 qiime dada2 denoise-paired --i-demultiplexed-seqs demux.qza \
 --o-table Table.qza  \
 --o-representative-sequences RepSeq.qza \
 --o-denoising-stats SampleData \
---p-trim-left-f 6 \
---p-trim-left-r 6 \
+--p-trim-left-f 0 \
+--p-trim-left-r 0 \
 --p-trunc-len-f 0 \
 --p-trunc-len-r 0 \
---p-n-threads 20                         
+--p-n-threads 4                        
                            
 # For seeing the SampleData file (convert from .qza to .qzv)
 qiime metadata tabulate \
@@ -63,7 +68,7 @@ qiime feature-table tabulate-seqs --i-data RepSeq.qza --o-visualization RepSeq.q
 qiime quality-control exclude-seqs --i-query-sequences RepSeq.qza \
       					     --i-reference-sequences /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/05_Mare_ignames/Diversity_in_Mare_yam_crop/05_QIIME2/Negative_control/V4/RepSeq.qza \
       					     --p-method vsearch \
-      					     --p-threads 6 \
+      					     --p-threads 4 \
       					     --p-perc-identity 1.00 \
       					     --p-perc-query-aligned 1.00 \
       					     --o-sequence-hits HitNegCtrl.qza \
