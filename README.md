@@ -203,3 +203,36 @@ First, open your terminal. Then, run these two command lines :
 | BRG3_set_05 | 87914 | 87117    | 99.09                             | 85615    | 13157  | 14.97                      | 12759        | 14.51                            |
 
 </details>
+
+
+
+
+
+
+
+<details>
+  <summary>Click here for seeing Denoising stats table</summary>
+    
+ <ins>Table 3 : Results from the script "06_qiime2_denoise_PE.sh" that give object "Table.qza/.qzv (and compare to nb of sequences before denoise)"  :</ins>
+
+
+| Sample ID   | Before denoise (demux.qzv) | After denoise (Table.qzv) |
+|-------------|----------------------------|---------------------------|
+| BRG2_set_04 | 92801                      | 71643                     |
+| BRG1_set_04 | 92791                      | 70925                     |
+| BRG3_set_04 | 89017                      | 68830                     |
+| BRG2_set_02 | 63784                      | 60104                     |
+| BRG1_set_02 | 61540                      | 58784                     |
+| BRG3_set_02 | 59269                      | 56380                     |
+| BRG2_set_05 | 96250                      | 32829                     |
+| BRG1_set_05 | 95639                      | 31334                     |
+| BRG2_set_03 | 67233                      | 21291                     |
+| BRG1_set_03 | 64388                      | 19184                     |
+| BRG3_set_05 | 87914                      | 12759                     |
+| BRG3_set_01 | 29748                      | 12470                     |
+| BRG1_set_01 | 31251                      | 12171                     |
+| BRG2_set_01 | 29017                      | 11542                     |
+| BRG3_set_03 | 58166                      | 316                       |
+
+</details>
+
