@@ -169,6 +169,8 @@ First, open your terminal. Then, run these two command lines :
   <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/quality_base.png" width="800">
   </div>
 
+ <ins>Figure 2 : Quality plots from the "05_qiime2_import_PE.sh" that give object "demux.qza/.qzv".</ins>
+
 </details>
 
 
