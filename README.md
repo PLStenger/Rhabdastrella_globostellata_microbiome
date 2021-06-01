@@ -120,13 +120,21 @@ First, open your terminal. Then, run these two command lines :
 <details>
   <summary>Click here for seeing sequence quality plots from FastQC/MultiQC</summary>
   
-  <ins>Figure 1 : Left = raw sequences (results from the script "01_quality_check_by_FastQC.sh") ; right = cleaned sequences (results from the script "03_check_quality_of_cleaned_data.sh")  :</ins>
-  
   <div align="center">
   <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/seq_info.png" width="800">
   </div>
 
+ <ins>Figure 1 : Left = raw sequences (results from the script "01_quality_check_by_FastQC.sh") ; right = cleaned sequences (results from the script "03_check_quality_of_cleaned_data.sh")  :</ins>
+
 </details>
+
+
+
+
+
+
+<details>
+  <summary>Click here for seeing sequence count table</summary>
    
 <ins>Table 1 : Results from the script "05_qiime2_import_PE.sh" that give object "demux.qza/.qzv"  :</ins>
 
@@ -147,6 +155,11 @@ First, open your terminal. Then, run these two command lines :
 | BRG1_set_01 | 31251          |
 | BRG3_set_01 | 29748          |
 | BRG2_set_01 | 29017          |    
+    
+</details>   
+    
+    
+    
     
     
 <details>
