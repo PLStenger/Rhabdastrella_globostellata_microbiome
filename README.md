@@ -23,6 +23,12 @@ First, open your terminal. Then, run these two command lines :
     conda install -c bioconda trimmomatic
     conda install -c bioconda multiqc
 
+
+### Know the number of CPU (threads) of your computer (here for MacOs) :   
+
+    sysctl hw.ncpu
+    > hw.ncpu: 4
+
 ### Run scripts in local by :
 
     # Put you in your working directory
