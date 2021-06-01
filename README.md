@@ -110,8 +110,23 @@ First, open your terminal. Then, run these two command lines :
     time nohup bash 09_qiime2_calculate_and_explore_diversity_metrics_PE.sh &> 09_qiime2_calculate_and_explore_diversity_metrics_PE.out
     time nohup bash 10_qiime2_assign_taxonomy_PE.sh &> 10_qiime2_assign_taxonomy_PE.out
     
+    
+    
+    time nohup bash 99_junk.sh &> 99_junk.out
+
 
 ### Results :
+
+<details>
+  <summary>Click here for seeing sequence quality plots from FastQC/MultiQC</summary>
+  
+  <ins>Figure 1 : Left = raw sequences (results from the script "01_quality_check_by_FastQC.sh") ; right = cleaned sequences (results from the script "03_check_quality_of_cleaned_data.sh")  :</ins>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/seq_info.png" width="800">
+  </div>
+
+</details>
    
 <ins>Table 1 : Results from the script "05_qiime2_import_PE.sh" that give object "demux.qza/.qzv"  :</ins>
 
@@ -135,7 +150,7 @@ First, open your terminal. Then, run these two command lines :
     
     
 <details>
-  <summary>Click here for per base sequence quality plot to see results</summary>
+  <summary>Click here for per base sequence quality plot from QIIME2</summary>
   
   <div align="center">
   <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/quality_base.png" width="800">
