@@ -211,7 +211,7 @@ First, open your terminal. Then, run these two command lines :
 
 
 <details>
-  <summary>Click here for seeing Denoising stats table</summary>
+  <summary>Click here for seeing number of counts after Denoising</summary>
     
  <ins>Table 3 : Results from the script "06_qiime2_denoise_PE.sh" that give object "Table.qza/.qzv (and compare to nb of sequences before denoise)"  :</ins>
 
