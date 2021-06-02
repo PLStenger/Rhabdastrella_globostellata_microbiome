@@ -3,6 +3,8 @@
 WORKING_DIRECTORY=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2
 OUTPUT=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2/visual
 
+DATABASE=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files/
+
 # Aim: rarefy a feature table to compare alpha/beta diversity results
 
 # A good forum to understand what it does :
@@ -18,8 +20,8 @@ conda activate qiime2-2019.10
 qiime diversity alpha-rarefaction \
   --i-table Table.qza \
   --i-phylogeny rooted-tree.qza \
-  --p-max-depth 57509 \
-  --m-metadata-file sample-metadata.tsv \
+  --p-max-depth 71643 \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --o-visualization $OUTPUT/alpha-rarefaction.qzv
   
 # Note: Interpreting alpha diversity metrics: it is important to understand that certain metrics are stricly qualitative (presence/absence), 
