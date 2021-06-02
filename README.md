@@ -103,15 +103,20 @@ First, open your terminal. Then, run these two command lines :
     
         real	1m56.160s
         user	0m55.588s
-        sys	0m11.154s
+        sys	    0m11.154s
     
     # Run the Denoise
     time nohup bash 06_qiime2_denoise_PE.sh &> 06_qiime2_denoise_PE.out
-        real	61m10.565s
-        user	124m19.146s
-        sys	17m13.084s
+        real	66m29.579s
+        user	129m35.661s
+        sys	    4m17.156s
     
+    # Run the tree construction
     time nohup bash 07_qiime2_tree_PE.sh &> 07_qiime2_tree_PE.out
+        real	3m52.763s
+        user	1m49.531s
+        sys	    0m16.128s
+    
     time nohup bash 08_qiime2_rarefaction_PE.sh &> 08_qiime2_rarefaction_PE.out
     time nohup bash 09_qiime2_calculate_and_explore_diversity_metrics_PE.sh &> 09_qiime2_calculate_and_explore_diversity_metrics_PE.out
     time nohup bash 10_qiime2_assign_taxonomy_PE.sh &> 10_qiime2_assign_taxonomy_PE.out
@@ -242,3 +247,16 @@ First, open your terminal. Then, run these two command lines :
 
 </details>
 
+
+
+    
+<details>
+  <summary>Click here for seeing the phylogenetic tree</summary>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/tree.png" width="800">
+  </div>
+
+ <ins>Figure 3 : Quality plots from the "05_qiime2_import_PE.sh" that give object "demux.qza/.qzv".</ins>
+
+</details>
