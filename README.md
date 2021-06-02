@@ -290,3 +290,78 @@ First, open your terminal. Then, run these two command lines :
  <ins>Figure 4 : Rarefaction plots from the "08_qiime2_rarefaction_PE.sh" script and then CSV files graphed by R.</ins>
 
 </details>
+
+
+
+
+
+<details>
+  <summary>Click here for seeing diversity metrics</summary>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/jaccard_emperor_sets.png" width="800">
+  </div>
+  
+  <ins>Sub-Figure : jaccard emperor for sets</ins>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/jaccard_emperor_ind.png" width="800">
+  </div>
+  
+  <ins>Sub-Figure : jaccard emperor for individuals</ins>
+  
+  
+  
+  
+
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/bray_curtis_emperor_sets.png" width="800">
+  </div>
+  
+  <ins>Sub-Figure : Bray Curtis for sets</ins>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/bray_curtis_emperor_ind.png" width="800">
+  </div>
+  
+  <ins>Sub-Figure : Bray Curtis for individuals</ins>
+  
+  
+  
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/unweighted_unifrac_emperor_sets.png" width="800">
+  </div>
+  
+  <ins>Sub-Figure : unweighted unifrac for sets</ins>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/unweighted_unifrac_emperor_ind.png" width="800">
+  </div>
+  
+  <ins>Sub-Figure : unweighted unifrac for individuals</ins>
+  
+  
+  
+  
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/weighted_unifrac_emperor_sets.png" width="800">
+  </div>
+  
+  <ins>Sub-Figure : weighted unifrac for sets</ins>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/weighted_unifrac_emperor_ind.png" width="800">
+  </div>
+  
+  <ins>Sub-Figure : weighted unifrac for individuals</ins>
+  
+  
+  
+  
+  
+
+ <ins>Figure 5 : Diversity metrics.</ins>
+
+</details>
