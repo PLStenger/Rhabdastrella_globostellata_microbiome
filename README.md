@@ -372,7 +372,7 @@ First, open your terminal. Then, run these two command lines :
 
 
 <details>
-  <summary>Click here for seeing rarefaction plots</summary>
+  <summary>Click here for seeing barplots</summary>
  
   
   <div align="center">
