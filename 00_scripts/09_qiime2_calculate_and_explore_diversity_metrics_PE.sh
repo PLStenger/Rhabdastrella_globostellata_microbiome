@@ -3,6 +3,8 @@
 WORKING_DIRECTORY=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2
 OUTPUT=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2/visual
 
+DATABASE=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files/
+
 # Aim: perform diversity metrics and rarefaction
 
 # https://chmi-sops.github.io/mydoc_qiime2.html#step-8-calculate-and-explore-diversity-metrics
@@ -26,38 +28,38 @@ qiime diversity core-metrics-phylogenetic \
   --i-phylogeny rooted-tree.qza \
   --i-table Table.qza \
   --p-sampling-depth 11542 \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --output-dir core-metrics-results
   
 # Now test for relationships between alpha diversity and study metadata   
   
 qiime diversity alpha-group-significance \
   --i-alpha-diversity core-metrics-results/faith_pd_vector.qza \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --o-visualization core-metrics-results/faith-pd-group-significance.qzv
 
 qiime diversity alpha-group-significance \
   --i-alpha-diversity core-metrics-results/evenness_vector.qza \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --o-visualization core-metrics-results/evenness-group-significance.qzv
 
 qiime diversity alpha-group-significance \
   --i-alpha-diversity core-metrics-results/shannon_vector.qza \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --o-visualization core-metrics-results/shannon_group-significance.qzv  
   
 # Now test for relationships between beta diversity and study metadata 
 
 qiime diversity beta-group-significance \
   --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --m-metadata-column BodySite \
   --o-visualization core-metrics-results/unweighted-unifrac-body-site-significance.qzv \
   --p-pairwise
 
 qiime diversity beta-group-significance \
   --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --m-metadata-column Subject \
   --o-visualization core-metrics-results/unweighted-unifrac-subject-group-significance.qzv \
   --p-pairwise
@@ -68,13 +70,13 @@ qiime diversity beta-group-significance \
 #first, use the unweighted unifrac data as input
 qiime emperor plot \
   --i-pcoa core-metrics-results/unweighted_unifrac_pcoa_results.qza \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --p-custom-axes DaysSinceExperimentStart \
   --o-visualization core-metrics-results/unweighted-unifrac-emperor-DaysSinceExperimentStart.qzv
 
 #now repeat with bray curtis
 qiime emperor plot \
   --i-pcoa core-metrics-results/bray_curtis_pcoa_results.qza \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --p-custom-axes DaysSinceExperimentStart \
   --o-visualization core-metrics-results/bray-curtis-emperor-DaysSinceExperimentStart.qzv
