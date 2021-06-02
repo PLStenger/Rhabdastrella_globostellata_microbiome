@@ -365,3 +365,22 @@ First, open your terminal. Then, run these two command lines :
  <ins>Figure 5 : Diversity metrics.</ins>
 
 </details>
+
+
+
+
+
+
+<details>
+  <summary>Click here for seeing rarefaction plots</summary>
+ 
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/barplot.png" width="800">
+  </div>
+
+ <ins>Figure 6 : Barplot</ins>
+
+</details>
+
+
