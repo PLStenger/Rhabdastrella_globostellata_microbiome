@@ -127,7 +127,14 @@ First, open your terminal. Then, run these two command lines :
     08_qiime2_rarefaction_PE_plots.R
     
     time nohup bash 09_qiime2_calculate_and_explore_diversity_metrics_PE.sh &> 09_qiime2_calculate_and_explore_diversity_metrics_PE.out
+        real	3m44.779s
+        user	1m9.432s
+        sys	    0m21.209s
+    
     time nohup bash 10_qiime2_assign_taxonomy_PE.sh &> 10_qiime2_assign_taxonomy_PE.out
+        real	82m44.469s
+        user	74m58.003s
+        sys	    1m21.506s
     
     
     
