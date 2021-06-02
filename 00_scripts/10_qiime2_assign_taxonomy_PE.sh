@@ -3,6 +3,8 @@
 WORKING_DIRECTORY=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2
 OUTPUT=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2/visual
 
+DATABASE=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files/
+
 # Aim: classify reads by taxon using a fitted classifier
 
 # https://docs.qiime2.org/2019.10/tutorials/moving-pictures/
@@ -103,11 +105,11 @@ qiime metadata tabulate \
 qiime taxa barplot \
   --i-table Table.qza \
   --i-taxonomy taxonomy_reads-per-batch_0.qza \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --o-visualization taxa-bar-plots_reads-per-batch_0.qzv
 
 qiime taxa barplot \
   --i-table Table.qza \
   --i-taxonomy Taxonomy_reads-per-batch_1000.qza \
-  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-file $DATABASE/sample-metadata.tsv \
   --o-visualization Taxa-bar-plots_reads-per-batch_1000.qzv
