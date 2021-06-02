@@ -274,15 +274,15 @@ First, open your terminal. Then, run these two command lines :
   <summary>Click here for seeing rarefaction plots</summary>
   
   <div align="center">
-  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/alpha-rarefaction__shannon.pdf" width="800">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/alpha-rarefaction_shannon.png" width="800">
   </div>
   
   <div align="center">
-  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/alpha-rarefaction_faith_pd.pdf" width="800">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/alpha-rarefaction_faith_pd.png" width="800">
   </div>
   
   <div align="center">
-  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/alpha-rarefaction_observed_otu.pdf" width="800">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/alpha-rarefaction_observed_otu.png" width="800">
   </div>
 
  <ins>Figure 4 : Rarefaction plots from the "08_qiime2_rarefaction_PE.sh" script and then CSV files graphed by R.</ins>
