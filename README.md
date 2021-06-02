@@ -117,7 +117,13 @@ First, open your terminal. Then, run these two command lines :
         user	1m49.531s
         sys	    0m16.128s
     
+    # Run the rarefaction
     time nohup bash 08_qiime2_rarefaction_PE.sh &> 08_qiime2_rarefaction_PE.out
+        real	1m15.788s
+        user	0m28.194s
+        sys	       0m8.118s
+        
+        
     time nohup bash 09_qiime2_calculate_and_explore_diversity_metrics_PE.sh &> 09_qiime2_calculate_and_explore_diversity_metrics_PE.out
     time nohup bash 10_qiime2_assign_taxonomy_PE.sh &> 10_qiime2_assign_taxonomy_PE.out
     
@@ -258,5 +264,27 @@ First, open your terminal. Then, run these two command lines :
   </div>
 
  <ins>Figure 3 : Quality plots from the "05_qiime2_import_PE.sh" that give object "demux.qza/.qzv".</ins>
+
+</details>
+
+
+
+
+<details>
+  <summary>Click here for seeing rarefaction plots</summary>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/alpha-rarefaction__shannon.pdf" width="800">
+  </div>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/alpha-rarefaction_faith_pd.pdf" width="800">
+  </div>
+  
+  <div align="center">
+  <img src="https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/alpha-rarefaction_observed_otu.pdf" width="800">
+  </div>
+
+ <ins>Figure 4 : Rarefaction plots from the "08_qiime2_rarefaction_PE.sh" script and then CSV files graphed by R.</ins>
 
 </details>
