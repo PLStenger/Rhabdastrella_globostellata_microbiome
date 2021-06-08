@@ -27,7 +27,7 @@ conda activate qiime2-2019.10
 qiime diversity core-metrics-phylogenetic \
   --i-phylogeny rooted-tree.qza \
   --i-table Table.qza \
-  --p-sampling-depth 11542 \
+  --p-sampling-depth 2548 \
   --m-metadata-file $DATABASE/sample-metadata.tsv \
   --output-dir core-metrics-results
   
