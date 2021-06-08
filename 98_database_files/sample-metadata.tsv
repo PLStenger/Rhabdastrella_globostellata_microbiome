@@ -1,7 +1,7 @@
 #SampleID	Dataset	FullName	Acronyme	time	Site
-01_filt	01	01_filt	01_filt 1	bourake
-02_filt	02	02_filt	02_filt 1	bourake
-03_filt	03	03_filt	03_filt 1	bourake
+01_filt	01	01_filt	01_filt	1	bourake
+02_filt	02	02_filt	02_filt	1	bourake
+03_filt	03	03_filt	03_filt	1	bourake
 Sp-1A	04	Sp-1A	Sp-1A	2	bourake
 Sp-1B	04	Sp-1B	Sp-1B	2	bourake
 Sp-1C	04	Sp-1C	Sp-1C	2	bourake
