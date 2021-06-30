@@ -69,7 +69,7 @@ qiime metadata tabulate \
 # Here --i-reference-sequences correspond to the negative control sample (if you don't have any, like here, take another one from an old project, the one here is from the same sequencing line (but not same project))
 
 qiime quality-control exclude-seqs --i-query-sequences core/RepSeq.qza \
-      					     --i-reference-sequences /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/05_Mare_ignames/Diversity_in_Mare_yam_crop/05_QIIME2/old_analysis/Negative_control/V4/RepSeq.qza \
+      					     --i-reference-sequences /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/05_Mare_ignames/Diversity_in_Mare_yam_crop/05_QIIME2/old_analysis/Negative_control/V4/Negative_control_Sample_RepSeq_V4.qza \
       					     --p-method vsearch \
       					     --p-threads 4 \
       					     --p-perc-identity 1.00 \
