@@ -34,26 +34,26 @@ conda activate qiime2-2019.10
 # --p-trim-left-f : Position at which forward read sequences should be trimmed due to low quality. This trims the 5' end of the input sequences, which will be the bases that were sequenced in the first cycles.
 #--p-trim-left-r : Position at which reverse read sequences should be trimmed due to low quality. This trims the 5' end of the input sequences, which will be the bases that were sequenced in the first cycles.
 
-qiime dada2 denoise-paired --i-demultiplexed-seqs core/demux.qza \
---o-table core/Table.qza  \
---o-representative-sequences core/RepSeq.qza \
---o-denoising-stats core/Stats.qza \
---p-trim-left-f 0 \
---p-trim-left-r 0 \
---p-trunc-len-f 0 \
---p-trunc-len-r 0 \
---p-n-threads 4                        
+#qiime dada2 denoise-paired --i-demultiplexed-seqs core/demux.qza \
+#--o-table core/Table.qza  \
+#--o-representative-sequences core/RepSeq.qza \
+#--o-denoising-stats core/Stats.qza \
+#--p-trim-left-f 0 \
+#--p-trim-left-r 0 \
+#--p-trunc-len-f 0 \
+#--p-trunc-len-r 0 \
+#--p-n-threads 4                        
                            
 # For seeing the SampleData file (convert from .qza to .qzv)
 qiime metadata tabulate \
-  --m-input-file core/SampleData.qza \
-  --o-visualization visual/SampleData.qzv
+  --m-input-file core/Stats.qza \
+  --o-visualization visual/Stats.qzv
 
-# For seeing the Table file (convert from .qza to .qzv)
-qiime feature-table summarize --i-table core/Table.qza --o-visualization visual/Table.qzv
-
-# For seeing the RedSeq file (convert from .qza to .qzv)
-qiime feature-table tabulate-seqs --i-data core/RepSeq.qza --o-visualization visual/RepSeq.qzv
+## For seeing the Table file (convert from .qza to .qzv)
+#qiime feature-table summarize --i-table core/Table.qza --o-visualization visual/Table.qzv
+#
+## For seeing the RedSeq file (convert from .qza to .qzv)
+#qiime feature-table tabulate-seqs --i-data core/RepSeq.qza --o-visualization visual/RepSeq.qzv
 
 
 # sequence_contamination_filter :
@@ -69,7 +69,7 @@ qiime feature-table tabulate-seqs --i-data core/RepSeq.qza --o-visualization vis
 # Here --i-reference-sequences correspond to the negative control sample (if you don't have any, like here, take another one from an old project, the one here is from the same sequencing line (but not same project))
 
 qiime quality-control exclude-seqs --i-query-sequences core/RepSeq.qza \
-      					     --i-reference-sequences /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/05_Mare_ignames/Diversity_in_Mare_yam_crop/05_QIIME2/Negative_control/V4/RepSeq.qza \
+      					     --i-reference-sequences /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/05_Mare_ignames/Diversity_in_Mare_yam_crop/05_QIIME2/old_analysis/Negative_control/V4/RepSeq.qza \
       					     --p-method vsearch \
       					     --p-threads 4 \
       					     --p-perc-identity 1.00 \
