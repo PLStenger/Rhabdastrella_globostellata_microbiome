@@ -4,7 +4,8 @@ WORKING_DIRECTORY=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_
 OUTPUT=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2/visual
 
 METADATA=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files/sample-metadata.tsv
-
+# negative control sample :
+NEG_CONTROL=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files/Negative_control_Sample_RepSeq_V4.qza
 
 # https://chmi-sops.github.io/mydoc_qiime2.html
 
@@ -68,8 +69,11 @@ qiime metadata tabulate \
 
 # Here --i-reference-sequences correspond to the negative control sample (if you don't have any, like here, take another one from an old project, the one here is from the same sequencing line (but not same project))
 
+#    --i-reference-sequences /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/05_Mare_ignames/Diversity_in_Mare_yam_crop/05_QIIME2/old_analysis/Negative_control/V4/Negative_control_Sample_RepSeq_V4.qza \
+
+
 qiime quality-control exclude-seqs --i-query-sequences core/RepSeq.qza \
-      					     --i-reference-sequences /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/05_Mare_ignames/Diversity_in_Mare_yam_crop/05_QIIME2/old_analysis/Negative_control/V4/Negative_control_Sample_RepSeq_V4.qza \
+      					     --i-reference-sequences $NEG_CONTROL \
       					     --p-method vsearch \
       					     --p-threads 4 \
       					     --p-perc-identity 1.00 \
@@ -141,7 +145,7 @@ qiime feature-table filter-seqs --i-data core/NegRepSeq.qza \
       					  --o-filtered-data core/ConRepSeq.qza
 
 # For seeing the ConRepSeq file (convert from .qza to .qzv)
-qiime feature-table tabulate-seqs --i-data ConRepSeq.qza --o-visualization ConRepSeq.qzv
+qiime feature-table tabulate-seqs --i-data core/ConRepSeq.qza --o-visualization visual/ConRepSeq.qzv
 
 # sequence_summarize :
 ######################
