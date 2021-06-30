@@ -25,8 +25,12 @@ qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' \
 
 cd $OUTPUT
 
-qiime demux summarize --i-data demux.qza --o-visualization demux.qzv
+qiime demux summarize --i-data core/demux.qza --o-visualization visual/demux.qzv
 
 # for vizualisation :
 # https://view.qiime2.org
+
+qiime tools export --input-path visual/demux.qzv --output-path export/visual/demux
+qiime tools export --input-path core/demux.qza --output-path export/core/demux
+
 
