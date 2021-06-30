@@ -18,9 +18,13 @@ cd $WORKING_DIRECTORY
 eval "$(conda shell.bash hook)"
 conda activate qiime2-2019.10
 
+# Make the directory (mkdir) only if not existe already(-p)
+mkdir -p $OUTPUT/core
+mkdir -p $OUTPUT/visual
+
 qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' \
 			    --input-path  $MANIFEST \
-			    --output-path $OUTPUT/demux.qza \
+			    --output-path $OUTPUT/core/demux.qza \
 			    --input-format PairedEndFastqManifestPhred33V2
 
 cd $OUTPUT
