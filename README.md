@@ -113,9 +113,9 @@ First, open your terminal. Then, run these two command lines :
     
     # Run the tree construction
     time nohup bash 07_qiime2_tree_PE.sh &> 07_qiime2_tree_PE.out
-        real	3m52.763s
-        user	1m49.531s
-        sys	    0m16.128s
+        real	8m29.501s
+        user	2m23.194s
+        sys	0m20.178s
     
     # Run the rarefaction
     time nohup bash 08_qiime2_rarefaction_PE.sh &> 08_qiime2_rarefaction_PE.out
