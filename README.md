@@ -2,7 +2,7 @@
 
 ![graphical_summary_of_primers_map](https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/primers_map.png)
 
-![graphical_summary_of_sets_of_markers](https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/five_set_of_markers.png)
+![graphical_summary_of_sets_of_markers](https://github.com/PLStenger/Rhabdastrella_globostellata_microbiome/blob/main/99_images/set_of_markers.png)
 
 
 ### Installing pipeline :
@@ -23,6 +23,7 @@ First, open your terminal. Then, run these two command lines :
     conda install -c bioconda trimmomatic
     conda install -c bioconda multiqc
 
+For install QIIME2, please refer to http://qiime.org/install/install.html
 
 ### Know the number of CPU (threads) of your computer (here for MacOs) :   
 
