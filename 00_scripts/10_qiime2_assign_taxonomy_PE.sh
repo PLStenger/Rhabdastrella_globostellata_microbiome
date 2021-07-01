@@ -3,7 +3,7 @@
 WORKING_DIRECTORY=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2
 OUTPUT=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2/visual
 
-DATABASE=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files/
+DATABASE=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files
 
 # Aim: classify reads by taxon using a fitted classifier
 
@@ -27,14 +27,19 @@ cd $WORKING_DIRECTORY
 eval "$(conda shell.bash hook)"
 conda activate qiime2-2019.10
 
+
+# Make the directory (mkdir) only if not existe already(-p)
+mkdir -p taxonomy
+mkdir -p export/taxonomy
+
 qiime tools import --type 'FeatureData[Taxonomy]' \
   --input-format HeaderlessTSVTaxonomyFormat \
-  --input-path /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/05_Mare_ignames/Diversity_in_Mare_yam_crop/05_QIIME2/Paired_end/data_input/Taxonomy-SILVA-V132-2018.04.10-99.txt \
-  --output-path RefTaxo.qza
+  --input-path /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files/silva_nr99_v138_wSpecies_train_set.fa \
+  --output-path taxonomy/RefTaxo.qza
 
 qiime tools import --type 'FeatureData[Sequence]' \
-  --input-path /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/05_Mare_ignames/Diversity_in_Mare_yam_crop/05_QIIME2/Paired_end/data_input/Sequence-SILVA-V132-2018.04.10-99.fasta \
-  --output-path DataSeq.qza
+  --input-path /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files/silva_nr99_v138_wSpecies_train_set.fa \
+  --output-path taxonomy/DataSeq.qza
 
    
 # Aim: Extract sequencing-like reads from a reference database.
@@ -63,10 +68,10 @@ qiime tools import --type 'FeatureData[Sequence]' \
 # If your primer sequences are > 30 nt long, they most likely contain some
 # non-biological sequence !
 
-qiime feature-classifier extract-reads --i-sequences DataSeq.qza \
+qiime feature-classifier extract-reads --i-sequences taxonomy/DataSeq.qza \
         --p-f-primer 'GTGCCAGCMGCCGCGGTAA' \
         --p-r-primer 'TCCTCCGCTTATTGATATGC' \
-        --o-reads RefSeq.qza 
+        --o-reads taxonomy/RefSeq.qza 
         
         #--p-trunc-len {params.length} \
         
@@ -74,42 +79,54 @@ qiime feature-classifier extract-reads --i-sequences DataSeq.qza \
 # Aim: Create a scikit-learn naive_bayes classifier for reads
 
 qiime feature-classifier fit-classifier-naive-bayes \
-  --i-reference-reads RefSeq.qza \
-  --i-reference-taxonomy RefTaxo.qza \
-  --o-classifier Classifier.qza
+  --i-reference-reads taxonomy/RefSeq.qza \
+  --i-reference-taxonomy taxonomy/RefTaxo.qza \
+  --o-classifier taxonomy/Classifier.qza
 
 # Aim: Classify reads by taxon using a fitted classifier
 # --p-reads-per-batch 1000
 
 qiime feature-classifier classify-sklearn \
-   --i-classifier Classifier.qza \
-   --i-reads ConRepSeq.qza \
+   --i-classifier taxonomy/Classifier.qza \
+   --i-reads core/ConRepSeq.qza \
    --p-reads-per-batch 1000 \ 
    --p-n-jobs 6 \
-   --o-classification Taxonomy_reads-per-batch_1000.qza
+   --o-classification taxonomy/Taxonomy_reads-per-batch_1000.qza
 
 # Switch to https://chmi-sops.github.io/mydoc_qiime2.html#step-9-assign-taxonomy
 # --p-reads-per-batch 0 (default)
 
 qiime feature-classifier classify-sklearn \
-  --i-classifier Classifier.qza \
-  --i-reads RepSeq.qza \
-  --o-classification taxonomy_reads-per-batch_0.qza
+  --i-classifier taxonomy/Classifier.qza \
+  --i-reads core/RepSeq.qza \
+  --o-classification taxonomy/taxonomy_reads-per-batch_0.qza
 
 qiime metadata tabulate \
-  --m-input-file taxonomy.qza \
-  --o-visualization taxonomy_reads-per-batch_0.qzv
+  --m-input-file taxonomy/taxonomy.qza \
+  --o-visualization taxonomy/taxonomy_reads-per-batch_0.qzv
 
 # Now create a visualization of the classified sequences.
 
 qiime taxa barplot \
-  --i-table Table.qza \
-  --i-taxonomy taxonomy_reads-per-batch_0.qza \
+  --i-table core/Table.qza \
+  --i-taxonomy taxonomy/taxonomy_reads-per-batch_0.qza \
   --m-metadata-file $DATABASE/sample-metadata.tsv \
-  --o-visualization taxa-bar-plots_reads-per-batch_0.qzv
+  --o-visualization taxonomy/taxa-bar-plots_reads-per-batch_0.qzv
 
 qiime taxa barplot \
-  --i-table Table.qza \
-  --i-taxonomy Taxonomy_reads-per-batch_1000.qza \
+  --i-table core/Table.qza \
+  --i-taxonomy taxonomy/Taxonomy_reads-per-batch_1000.qza \
   --m-metadata-file $DATABASE/sample-metadata.tsv \
-  --o-visualization Taxa-bar-plots_reads-per-batch_1000.qzv
+  --o-visualization taxonomy/Taxa-bar-plots_reads-per-batch_1000.qzv
+
+qiime tools export --input-path taxonomy/Classifier.qza --output-path export/taxonomy/Classifier
+qiime tools export --input-path taxonomy/RefSeq.qza --output-path export/taxonomy/RefSeq
+qiime tools export --input-path taxonomy/DataSeq.qza --output-path export/taxonomy/DataSeq
+qiime tools export --input-path taxonomy/RefTaxo.qza --output-path export/taxonomy/RefTaxo
+  
+qiime tools export --input-path taxonomy/taxonomy_reads-per-batch_0_RepSeq.qza --output-path export/taxonomy/taxonomy_reads-per-batch_0_RepSeq
+qiime tools export --input-path taxonomy/Taxa-bar-plots_reads-per-batch_1000.qzv --output-path export/taxonomy/Taxa-bar-plots_reads-per-batch_1000
+qiime tools export --input-path taxonomy/taxa-bar-plots_reads-per-batch_0.qzv --output-path export/taxonomy/taxa-bar-plots_reads-per-batch_0
+qiime tools export --input-path taxonomy/taxonomy_reads-per-batch_0.qzv --output-path export/taxonomy/taxonomy_reads-per-batch_0_visual
+qiime tools export --input-path taxonomy/taxonomy_reads-per-batch_0.qza --output-path export/taxonomy/taxonomy_reads-per-batch_0
+qiime tools export --input-path taxonomy/Taxonomy_reads-per-batch_1000.qza --output-path export/taxonomy/Taxonomy_reads-per-batch_1000
