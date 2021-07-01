@@ -95,9 +95,9 @@ mkdir -p export/taxonomy
 # See this thread https://forum.qiime2.org/t/silva-138-classifiers/13131 (found because of this thread : https://forum.qiime2.org/t/silva-138-for-qiime2/12957/4)
 
 
-cp $DATABASE/SILVA-138-SSURef-full-length-classifier.qza taxonomy/Classifier.qza
-cp $DATABASE/SILVA-138-SSURef-Full-Seqs.qza taxonomy/DataSeq.qza
-cp $DATABASE/Silva-v138-full-length-seq-taxonomy.qza taxonomy/RefTaxo.qza
+#cp $DATABASE/SILVA-138-SSURef-full-length-classifier.qza taxonomy/Classifier.qza
+#cp $DATABASE/SILVA-138-SSURef-Full-Seqs.qza taxonomy/DataSeq.qza
+#cp $DATABASE/Silva-v138-full-length-seq-taxonomy.qza taxonomy/RefTaxo.qza
 
 
 
