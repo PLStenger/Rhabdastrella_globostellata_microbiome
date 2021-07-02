@@ -136,7 +136,7 @@ For install QIIME2, please refer to http://qiime.org/install/install.html
         real	82m44.469s
         user	74m58.003s
         sys	    1m21.506s
-    
+    time nohup bash 11_core_biom_PE.sh &> 11_core_biom_PE.out
     
     
     time nohup bash 99_junk.sh &> 99_junk.out
