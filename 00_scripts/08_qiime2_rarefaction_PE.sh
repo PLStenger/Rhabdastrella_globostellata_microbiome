@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-WORKING_DIRECTORY=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2
-DATABASE=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files
+WORKING_DIRECTORY=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/05_QIIME2
+DATABASE=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/98_database_files
 
 # Aim: rarefy a feature table to compare alpha/beta diversity results
 
@@ -11,12 +11,12 @@ DATABASE=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Da
 cd $WORKING_DIRECTORY
 
 eval "$(conda shell.bash hook)"
-conda activate qiime2-2019.10
+conda activate qiime2-2021.4
 
 # Note: max-depth should be chosen based on Table.qzv
 
 qiime diversity alpha-rarefaction \
-  --i-table core/Table.qza \
+  --i-table core/ConTable.qza \
   --i-phylogeny tree/rooted-tree.qza \
   --p-max-depth 69753 \
   --p-min-depth 1 \
