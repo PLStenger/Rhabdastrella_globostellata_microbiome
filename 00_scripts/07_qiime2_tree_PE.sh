@@ -35,11 +35,6 @@ qiime phylogeny midpoint-root \
   --o-rooted-tree tree/rooted-tree.qza
   
   
-#export the tree  
-qiime tools export \
-  --input-path tree/unrooted-tree.qza \
-  --output-path $DATADIRECTORY_V4_bacteria/tree
-  
 # This out put is in Newick format, see http://scikit-bio.org/docs/latest/generated/skbio.io.format.newick.html  
 # See it on https://itol.embl.de
 
