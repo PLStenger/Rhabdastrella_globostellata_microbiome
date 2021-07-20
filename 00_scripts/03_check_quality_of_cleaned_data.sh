@@ -8,6 +8,8 @@
 WORKING_DIRECTORY=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/03_cleaned_data
 OUTPUT=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/04_quality_check
 
+eval "$(conda shell.bash hook)"
+conda activate fastqc
 
 cd $WORKING_DIRECTORY
 
@@ -16,4 +18,10 @@ do
       fastqc $FILE -o $OUTPUT
 done ;
 
+conda deactivate fastqc
+conda activate multiqc
+
+# Run multiqc for quality summary
+
+multiqc $OUTPUT
 
