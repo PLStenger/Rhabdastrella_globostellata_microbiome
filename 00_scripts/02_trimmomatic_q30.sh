@@ -6,7 +6,7 @@
 WORKING_DIRECTORY=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/01_raw_data
 OUTPUT=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/03_cleaned_data
 
-ADAPTERFILE=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/99_softwares/
+ADAPTERFILE=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/99_softwares/adapters_sequences.fasta
 
 # Arguments :
 # ILLUMINACLIP:"$ADAPTERFILE":2:30:10 LEADING:30 TRAILING:30 SLIDINGWINDOW:26:30 MINLEN:150
