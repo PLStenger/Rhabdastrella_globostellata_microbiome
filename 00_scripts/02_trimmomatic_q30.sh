@@ -11,8 +11,10 @@ ADAPTERFILE=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/99_softwa
 # Arguments :
 # ILLUMINACLIP:"$ADAPTERFILE":2:30:10 LEADING:30 TRAILING:30 SLIDINGWINDOW:26:30 MINLEN:150
 
-cd $WORKING_DIRECTORY
+eval "$(conda shell.bash hook)"
+conda activate trimmomatic
 
+cd $WORKING_DIRECTORY
 
 ## Sample BRG1 for 1) V1V3 marker, 2) V3V4 marker, 3) V3V4+ marker
 trimmomatic PE -Xmx60G -threads 8 -phred33 $WORKING_DIRECTORY/BRG1V1_R1.fastq $WORKING_DIRECTORY/BRG1V3_R2.fastq $OUTPUT/BRG1V1_R1.paired.fastq.gz $OUTPUT/BRG1V1_R1.single.fastq.gz $OUTPUT/BRG1V3_R2.paired.fastq.gz $OUTPUT/BRG1V3_R2.single.fastq.gz ILLUMINACLIP:"$ADAPTERFILE":2:30:10 LEADING:30 TRAILING:30 SLIDINGWINDOW:26:30 MINLEN:150
