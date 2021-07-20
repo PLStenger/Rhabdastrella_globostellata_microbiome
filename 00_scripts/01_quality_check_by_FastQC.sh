@@ -5,8 +5,8 @@
 
 # Correct tool citation : Andrews, S. (2010). FastQC: a quality control tool for high throughput sequence data.
 
-WORKING_DIRECTORY=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/01_raw_data
-OUTPUT=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/02_quality_check
+WORKING_DIRECTORY=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/01_raw_data
+OUTPUT=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/02_quality_check
 
 cd $WORKING_DIRECTORY
 
@@ -14,3 +14,11 @@ for FILE in $(ls $WORKING_DIRECTORY/*.fastq)
 do
       fastqc $FILE -o $OUTPUT
 done ;
+
+
+conda deactivate fastqc
+conda activate multiqc
+
+# Run multiqc for quality summary
+
+multiqc $OUTPUT
