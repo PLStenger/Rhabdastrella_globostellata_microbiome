@@ -8,6 +8,9 @@
 WORKING_DIRECTORY=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/01_raw_data
 OUTPUT=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/02_quality_check
 
+eval "$(conda shell.bash hook)"
+conda activate fastqc
+
 cd $WORKING_DIRECTORY
 
 for FILE in $(ls $WORKING_DIRECTORY/*.fastq)
