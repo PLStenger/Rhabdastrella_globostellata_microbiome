@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-WORKING_DIRECTORY=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2
-OUTPUT=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/05_QIIME2/visual
+WORKING_DIRECTORY=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/05_QIIME2
+OUTPUT=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/05_QIIME2/visual
 
-DATABASE=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome/98_database_files
+DATABASE=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/98_database_files
 
 # Aim: perform diversity metrics and rarefaction
 
@@ -22,14 +22,11 @@ DATABASE=/Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Da
 cd $WORKING_DIRECTORY
 
 eval "$(conda shell.bash hook)"
-conda activate qiime2-2019.10
+conda activate qiime2-2021.4
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p pcoa
 mkdir -p export/pcoa
-
-
-
 
 # core_metrics_phylogenetic:
 ############################
@@ -38,11 +35,11 @@ mkdir -p export/pcoa
 
 qiime diversity core-metrics-phylogenetic \
        --i-phylogeny tree/rooted-tree.qza \
-       --i-table core/Table.qza \
-       --p-sampling-depth 7751 \
+       --i-table core/ConTable.qza \
+       --p-sampling-depth 7715 \
        --m-metadata-file $DATABASE/sample-metadata.tsv \
        --o-rarefied-table core/RarTable.qza \
-       --o-observed-otus-vector core/Vector-observed_asv.qza \
+       --o-observed-features-vector core/Vector-observed_asv.qza \
        --o-shannon-vector core/Vector-shannon.qza \
        --o-evenness-vector core/Vector-evenness.qza \
        --o-faith-pd-vector core/Vector-faith_pd.qza \
@@ -153,7 +150,7 @@ qiime diversity pcoa --i-distance-matrix core/Matrix-braycurtis.qza \
         --o-pcoa pcoa/PCoA-braycurtis.qza
 
 qiime emperor plot --i-pcoa pcoa/PCoA-braycurtis.qza \
-        --m-metadata-file $DATABASE/sample-metadata.tsv \
+        --m-metadata-file $DATABASE//sample-metadata.tsv \
         --o-visualization visual/Emperor-braycurtis.qzv
 
 ### SIGNIFIANCE
@@ -251,7 +248,7 @@ qiime diversity beta-group-significance \
   --p-pairwise
   
 qiime diversity beta-group-significance --i-distance-matrix core/Matrix-jaccard.qza  \
-        --m-metadata-file $DATABASE/sample-metadata.tsv  \
+        --m-metadata-file $METADATA_ITS2/sample-metadata.tsv  \
         --m-metadata-column Acronyme \
         --o-visualization visual/BetaSignification-jaccard-Acronyme.qzv  \
         --p-method permanova  \
@@ -265,9 +262,7 @@ qiime diversity beta-group-significance --i-distance-matrix core/Matrix-braycurt
         --p-method permanova  \
         --p-pairwise  \
         --p-permutations 9999  
-  
-  
-  
+
 # Create a PCoA plot to explore beta diversity metric. 
 # To do this you can use Emperor, a powerful tool for interactively exploring scatter plots. You do not need to install Emperor.
 
@@ -284,10 +279,10 @@ qiime emperor plot \
   --m-metadata-file $DATABASE/sample-metadata.tsv \
   --p-custom-axes Acronyme \
   --o-visualization pcoa/bray-curtis-emperor-Acronyme.qzv
-  
+
 qiime tools export --input-path core/RarTable.qza --output-path export/table/RarTable
-qiime tools export --input-path core/RarRepSeq.qza --output-path export/table/RarRepSeq  
-  
+qiime tools export --input-path core/RarRepSeq.qza --output-path export/table/RarRepSeq
+
 qiime tools export --input-path visual/BetaSignification-braycurtis-Acronyme.qzv --output-path export/visual/BetaSignification-braycurtis-Acronyme
 qiime tools export --input-path visual/BetaSignification-jaccard-Acronyme.qzv --output-path export/visual/BetaSignification-jaccard-Acronyme
 qiime tools export --input-path visual/AlphaCorrelation-fisher_alpha.qzv --output-path export/visual/AlphaCorrelation-fisher_alpha
@@ -330,5 +325,4 @@ qiime tools export --input-path pcoa/PCoA-braycurtis.qza --output-path export/pc
 qiime tools export --input-path pcoa/PCoA-jaccard.qza --output-path export/pcoa/PCoA-jaccard
 qiime tools export --input-path pcoa/PCoA-unweighted_unifrac.qza --output-path export/pcoa/PCoA-unweighted_unifrac
 qiime tools export --input-path pcoa/PCoA-weighted_unifrac.qza --output-path export/pcoa/PCoA-weighted_unifrac
-
 
