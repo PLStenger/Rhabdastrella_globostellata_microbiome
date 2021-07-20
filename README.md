@@ -32,15 +32,15 @@ For install QIIME2, please refer to http://qiime.org/install/install.html
 
 ### Run scripts in local by :
 
+
     # Put you in your working directory
-    cd /Users/pierre-louisstenger/Documents/PostDoc_02_MetaBarcoding_IAC/02_Data/07_Rhabdastrella_globostellata_microbiome/Rhabdastrella_globostellata_microbiome
+    cd /scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/00_scripts
     
-    # Put you in bash language
-    bash
     
-    # Go in the script folder
-    cd 00_script
-    
+    # For run all pipeline, lunch only this command line : 
+    time nohup bash 000_run_all_pipeline_in_one_script.sh &> 000_run_all_pipeline_in_one_script.out
+
+    # For run pipeline step by step, lunch :
     # Run the first script for check the quality of your data and then for choosing the good cleanning parameters
     time nohup bash 01_quality_check_by_FastQC.sh &> 01_quality_check_by_FastQC.out
     
