@@ -32,6 +32,9 @@ conda activate qiime2-2021.4
 mkdir -p taxonomy
 mkdir -p export/taxonomy
 
+# I'm doing this step in order to deal the no space left in cluster :
+export TMPDIR='/scratch_vol1/fungi'
+echo $TMPDIR
 
 ###### All this step was for "old" database, now we uysed new ones 
 ######
