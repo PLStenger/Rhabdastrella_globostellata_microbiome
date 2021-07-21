@@ -3,6 +3,7 @@
 WORKING_DIRECTORY=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/05_QIIME2
 OUTPUT=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/05_QIIME2/visual
 
+DATABASE=/scratch_vol1/fungi/Rhabdastrella_globostellata_microbiome/98_database_files
 
 cd $WORKING_DIRECTORY
 
